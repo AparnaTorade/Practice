@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'First-App';
-}
+  public name="aparna";
+  public myId="apk";
+  public isdisabled=false;
+  public hasError=false;
+
+} 
