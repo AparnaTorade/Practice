@@ -3,11 +3,41 @@
 
 <input type="text" value="aparna"  id={{myId}} bind-disabled="isdisabled"> 
 
-<h1 class="text-success">Welcome to Angular {{name.length}}  </h1>
-<h1 class="text-danger">Welcome to Angular {{name.length}}  </h1>
+<h1 class="text-success">Welcome to Angular {{name}}  </h1>
+
 
 <h1 class="text-special">Welcome to Angular {{name.toUpperCase()}}  </h1>
 
 <h3 [class.text-danger]="hasError">hello</h3>
+
+<h1 [ngStyle]="titleStyle">Welcome to Angular   </h1>
 <hr>
-<app-child></app-child>
+<button   (click)=onclick($event)> click </button>{{greeting}}
+<input #myinput type="text" >
+<button  (click)=logmsg(myinput.value)>Log</button>
+
+<input [(ngModel)]="myname" type="text" >{{myname}}
+
+<div *ngIf="false; then thenBlock; else elseBlock"></div>
+<ng-template #thenBlock>
+  <h1>this is if block</h1>
+</ng-template>
+
+<ng-template #elseBlock>
+  <h1>this is else block</h1>
+</ng-template>
+<div [ngSwitch]="color">
+<div *ngSwitchCase="'red'">this is red color</div>
+<div *ngSwitchCase="'green'">this is green color</div>
+<div *ngSwitchCase="'blue'">this is blue color</div>
+<div *ngSwitchDefault>try again</div>
+
+</div>
+
+<div *ngFor="let no of numbers; even as f" >
+{{f}}  {{no}}
+</div>
+<h5>{{message|titlecase}}</h5>
+<h6>{{employee|json}}</h6>
+<app-child (childEvent)="message=$event" [parentData]="name"></app-child>
+
